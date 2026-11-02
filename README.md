@@ -10,7 +10,7 @@ University project for the Software Project Management course, Faculty of Automa
 | --- | --- | --- |
 | Barabas Gabriel Lucian | Project manager | Jira, documentation, repository |
 | Ferraglio Danut Octavian | F1 – Game catalogue and price comparison | `client/src/features/catalogue`, `server/src/features/catalogue` |
-| Avriam Maria Eliana | F2 – Price history and analytics | `client/src/features/price-history`, `server/src/features/price-history` |
+| Avram Maria Eliana | F2 – Price history and analytics | `client/src/features/price-history`, `server/src/features/price-history` |
 | Bujor David Marian | F3 – Accounts, wishlists and alerts | `client/src/features/accounts`, `server/src/features/accounts` |
 
 Work inside your feature's folders. Shared files (`App.jsx`, `index.css`, `components/`, `server/src/index.js`) change only when needed, and the pull request says why.

@@ -12,7 +12,7 @@ app.get('/api/health', (req, res) => {
 
 // Each feature has its own router, so the three developers rarely edit the same file.
 app.use('/api/catalogue', catalogue); // F1 – Ferraglio Danut Octavian
-app.use('/api/price-history', priceHistory); // F2 – Avriam Maria Eliana
+app.use('/api/price-history', priceHistory); // F2 – Avram Maria Eliana
 app.use('/api/accounts', accounts); // F3 – Bujor David Marian
 
 app.use((error, req, res, next) => {
