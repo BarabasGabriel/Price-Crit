@@ -1,0 +1,62 @@
+.cover {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 230px;
+    flex: none;
+    scroll-snap-align: start;
+    text-decoration: none;
+}
+
+.cover-image {
+    position: relative;
+    aspect-ratio: 460 / 215;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--cover);
+}
+
+    .cover-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.25s;
+    }
+
+.cover:hover .cover-image img {
+    transform: scale(1.04);
+}
+
+.cover-badge {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: var(--deal-bg);
+    color: var(--deal-text);
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.cover-title {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cover-price {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+    .cover-price s {
+        color: var(--muted);
+        font-weight: 400;
+        font-size: 0.875rem;
+    }

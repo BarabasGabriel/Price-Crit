@@ -1,0 +1,32 @@
+.shelf {
+    margin-bottom: 40px;
+}
+
+    .shelf h2 {
+        margin: 0 0 14px;
+        font-size: 1.375rem;
+        letter-spacing: -0.01em;
+    }
+
+.shelf-row {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+}
+
+.shelf-placeholder {
+    width: 230px;
+    flex: none;
+    aspect-ratio: 460 / 215;
+    border-radius: var(--radius);
+    background: var(--cover);
+}
+
+.shelf-error {
+    color: var(--muted);
+    margin: 0 0 12px;
+}
