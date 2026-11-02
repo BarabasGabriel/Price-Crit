@@ -6,6 +6,8 @@ export default defineConfig({
     plugins: [react()],
     server: {
         proxy: {
+            // Our own server (the server folder).
+            '/api': 'http://localhost:3001',
             // During development, /cheapshark/... is forwarded to the CheapShark API.
             '/cheapshark': {
                 target: 'https://www.cheapshark.com',

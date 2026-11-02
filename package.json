@@ -1,0 +1,11 @@
+{
+  "name": "price-crit",
+  "private": true,
+  "scripts": {
+    "setup": "npm install && npm install --prefix client && npm install --prefix server",
+    "dev": "concurrently -n web,api -c magenta,cyan \"npm run dev --prefix client\" \"npm run dev --prefix server\""
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}
