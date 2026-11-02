@@ -2,6 +2,8 @@
 
 Compare PC game prices across stores, follow each game's price history and get alerts when the games you want drop in price.
 
+University project for the Software Project Management course, Faculty of Automation, Computers and Electronics, University of Craiova.
+
 ## Team
 
 | Member | Role | Folders |
