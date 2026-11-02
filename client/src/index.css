@@ -1,111 +1,94 @@
+/* Berry theme. Every colour on the site comes from these variables. */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+    --bg: #f7f2f6;
+    --surface: #ffffff;
+    --cover: #eadfe8;
+    --text: #2a1729;
+    --muted: #7a6378;
+    --line: #e6d9e3;
+    --accent: #b8357a;
+    --on-accent: #ffffff;
+    --deal-bg: #dceff8;
+    --deal-text: #145b78;
+    --radius: 12px;
+    --font: 'Bricolage Grotesque Variable', system-ui, sans-serif;
+    color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+    :root[data-theme='dark'] {
+        --bg: #1d1220;
+        --surface: #281a2c;
+        --cover: #33213a;
+        --text: #f5e9f3;
+        --muted: #b79db4;
+        --line: #3a2840;
+        --accent: #f06eaa;
+        --on-accent: #1d1220;
+        --deal-bg: #7fd4f5;
+        --deal-text: #0b2b38;
+        color-scheme: dark;
+    }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+/* No choice saved yet: follow the computer's setting. */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --bg: #1d1220;
+        --surface: #281a2c;
+        --cover: #33213a;
+        --text: #f5e9f3;
+        --muted: #b79db4;
+        --line: #3a2840;
+        --accent: #f06eaa;
+        --on-accent: #1d1220;
+        --deal-bg: #7fd4f5;
+        --deal-text: #0b2b38;
+        color-scheme: dark;
+    }
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.5;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+a {
+    color: inherit;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+button {
+    font: inherit;
+    color: inherit;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+:focus-visible {
+    outline: 2.5px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 24px 64px;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+@media (max-width: 600px) {
+    .page {
+        padding: 8px 16px 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
 }
