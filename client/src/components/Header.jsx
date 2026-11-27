@@ -1,4 +1,5 @@
 import ThemeSwitch from './ThemeSwitch.jsx';
+import SearchBox from '../features/catalogue/SearchBox.jsx';
 import './Header.css';
 
 export default function Header() {
@@ -12,6 +13,7 @@ export default function Header() {
                 </svg>
                 Price Crit
             </a>
+            <SearchBox />
             <ThemeSwitch />
         </header>
     );

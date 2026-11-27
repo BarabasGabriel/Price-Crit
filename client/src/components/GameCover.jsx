@@ -1,6 +1,6 @@
 import './GameCover.css';
 
-const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+const ron = new Intl.NumberFormat('ro-RO', { style: 'currency', currency: 'RON' });
 
 export default function GameCover({ game }) {
     const isFree = game.price === 0;
@@ -20,8 +20,8 @@ export default function GameCover({ game }) {
             </div>
             <span className="cover-title">{game.title}</span>
             <span className="cover-price">
-                {isFree ? 'Free' : usd.format(game.price)}
-                {game.discount > 0 && <s>{usd.format(game.regularPrice)}</s>}
+                {game.price === null ? '' : isFree ? 'Free' : ron.format(game.price)}
+                {game.discount > 0 && game.regularPrice !== null && <s>{ron.format(game.regularPrice)}</s>}
             </span>
         </a>
     );
