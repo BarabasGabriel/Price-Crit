@@ -3,6 +3,7 @@
 import { Router } from 'express';
 import { cheapSharkGet } from './cheapshark.js';
 import { getUsdToRon } from './exchangeRate.js';
+import { getSteamDetails } from './steam.js';
 
 const router = Router();
 
@@ -65,6 +66,15 @@ router.get('/results', async (req, res) => {
         totalPages,
         total: sorted.length,
     });
+});
+
+// GET /api/catalogue/steam/400 → one game's details from the Steam store
+router.get('/steam/:appId', async (req, res) => {
+    const appId = Number(req.params.appId);
+    if (!Number.isInteger(appId) || appId <= 0) return res.status(400).json({ error: 'That game id is not valid.' });
+    const details = await getSteamDetails(appId);
+    if (!details) return res.status(404).json({ error: 'No Steam page was found for this game.' });
+    res.json(details);
 });
 
 // Example: the stores CheapShark tracks → GET /api/catalogue/stores
