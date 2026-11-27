@@ -11,8 +11,8 @@ export async function getDeals(params) {
     return deals.map((deal) => ({
         id: deal.dealID,
         title: deal.title,
-        price: Number(deal.salePrice),
-        regularPrice: Number(deal.normalPrice),
+        price: deal.salePriceRon,
+        regularPrice: deal.normalPriceRon,
         discount: Math.round(Number(deal.savings)),
         // Steam's wide cover looks much better than CheapShark's small thumbnail.
         image: deal.steamAppID ? `${STEAM_IMAGE}/${deal.steamAppID}/header.jpg` : deal.thumb,

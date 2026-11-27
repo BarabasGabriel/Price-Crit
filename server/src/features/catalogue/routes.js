@@ -2,6 +2,7 @@
 // Every route here starts with /api/catalogue.
 import { Router } from 'express';
 import { cheapSharkGet } from './cheapshark.js';
+import { getUsdToRon } from './exchangeRate.js';
 
 const router = Router();
 
@@ -10,7 +11,9 @@ const DEAL_FILTERS = ['sortBy', 'desc', 'AAA', 'onSale', 'upperPrice', 'lowerPri
 // GET /api/catalogue/deals?sortBy=Savings&onSale=1 → the deals for the home page shelves
 router.get('/deals', async (req, res) => {
     const params = Object.fromEntries(DEAL_FILTERS.filter((key) => req.query[key] !== undefined).map((key) => [key, String(req.query[key])]));
-    res.json(await cheapSharkGet('deals', params));
+    const [deals, rate] = await Promise.all([cheapSharkGet('deals', params), getUsdToRon().catch(() => null)]);
+    const toRon = (usd) => (rate === null ? null : Math.round(Number(usd) * rate * 100) / 100);
+    res.json(deals.map((deal) => ({ ...deal, salePriceRon: toRon(deal.salePrice), normalPriceRon: toRon(deal.normalPrice) })));
 });
 
 // GET /api/catalogue/search?title=portal → games whose title matches, with their cheapest price
