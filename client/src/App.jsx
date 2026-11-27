@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import Header from './components/Header.jsx';
 import Shelf from './components/Shelf.jsx';
+import Wishlists from './features/accounts/Wishlists.jsx';
 
 const SHELVES = [
     { title: 'Biggest discounts', query: { sortBy: 'Savings', AAA: '1' } },
@@ -9,13 +11,19 @@ const SHELVES = [
 ];
 
 export default function App() {
+    const [currentView, setCurrentView] = useState('deals');
+
     return (
         <>
-            <Header />
+            <Header currentView={currentView} onViewChange={setCurrentView} />
             <main className="page">
-                {SHELVES.map((shelf) => (
-                    <Shelf key={shelf.title} title={shelf.title} query={shelf.query} />
-                ))}
+                {currentView === 'deals' ? (
+                    SHELVES.map((shelf) => (
+                        <Shelf key={shelf.title} title={shelf.title} query={shelf.query} />
+                    ))
+                ) : (
+                    <Wishlists />
+                )}
             </main>
         </>
     );

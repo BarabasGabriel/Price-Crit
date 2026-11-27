@@ -1,0 +1,347 @@
+/* F3 – Wishlist styles using design system tokens */
+
+.wishlists-page {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.wishlists-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+}
+
+.wishlists-title-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wishlists-title-area h2 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.wishlists-count-badge {
+    background: var(--cover);
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.new-list-form {
+    display: flex;
+    gap: 8px;
+}
+
+.input-text {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.input-text:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: filter 0.15s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--on-accent);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+}
+
+.btn-secondary {
+    background: var(--cover);
+    color: var(--text);
+}
+
+.btn-secondary:hover {
+    filter: brightness(0.95);
+}
+
+.btn-danger {
+    background: transparent;
+    color: #e03131;
+    border: 1px solid #e03131;
+}
+
+.btn-danger:hover {
+    background: #e03131;
+    color: #ffffff;
+}
+
+.btn-sm {
+    padding: 4px 10px;
+    font-size: 0.85rem;
+}
+
+/* Tabs for list switching */
+.wishlists-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--line);
+}
+
+.wishlist-tab {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 8px 16px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.wishlist-tab.active {
+    background: var(--bg);
+    color: var(--accent);
+    border-bottom-color: var(--bg);
+    margin-bottom: -1px;
+}
+
+.tab-badge {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: var(--cover);
+    color: var(--text);
+}
+
+/* Active Wishlist Content Area */
+.active-wishlist {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.active-wishlist-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.list-rename-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.list-title {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.list-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Custom Add Game Form */
+.quick-add-section {
+    background: var(--cover);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.quick-add-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.quick-add-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+/* Games Grid */
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.wishlist-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.wishlist-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card-img-wrap {
+    height: 140px;
+    background: var(--cover);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.price-alert-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--deal-bg);
+    color: var(--deal-text);
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.card-prices {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.current-price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.target-price-tag {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.card-note {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    padding: 8px 10px;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+    color: var(--text);
+    font-style: italic;
+}
+
+.card-actions {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.move-select {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* Edit game modal / inline drawer */
+.edit-game-form {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 48px 16px;
+    color: var(--muted);
+}
