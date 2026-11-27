@@ -4,7 +4,7 @@ const STEAM_IMAGE = 'https://cdn.cloudflare.steamstatic.com/steam/apps';
 
 export async function getDeals(params) {
     const query = new URLSearchParams({ pageSize: '12', ...params });
-    const response = await fetch(`/cheapshark/deals?${query}`);
+    const response = await fetch(`/api/catalogue/deals?${query}`);
     if (!response.ok) throw new Error(`CheapShark answered ${response.status}`);
     const deals = await response.json();
 
