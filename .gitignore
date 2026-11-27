@@ -149,3 +149,6 @@ vite.config.ts.timestamp-*
 .turbo
 
 .vs/
+
+# Local SQLite database (created by the server)
+server/data/
