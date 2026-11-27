@@ -1,7 +1,7 @@
 import ThemeSwitch from './ThemeSwitch.jsx';
 import './Header.css';
 
-export default function Header({ currentView, onViewChange }) {
+export default function Header({ currentView, onViewChange, currentUser }) {
     return (
         <header className="header">
             <a
@@ -34,6 +34,24 @@ export default function Header({ currentView, onViewChange }) {
                         onClick={() => onViewChange?.('wishlists')}
                     >
                         Wishlists
+                    </button>
+                    <button
+                        type="button"
+                        className={`nav-button ${currentView === 'account' ? 'active' : ''}`}
+                        onClick={() => onViewChange?.('account')}
+                    >
+                        {currentUser ? (
+                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                                <span>{currentUser.username}</span>
+                                {currentUser.isVerified ? (
+                                    <span style={{ color: '#2b8a3e', fontSize: '0.8rem' }}>✓</span>
+                                ) : (
+                                    <span style={{ color: '#e67700', fontSize: '0.8rem' }}>!</span>
+                                )}
+                            </span>
+                        ) : (
+                            'Account'
+                        )}
                     </button>
                 </nav>
                 <ThemeSwitch />
