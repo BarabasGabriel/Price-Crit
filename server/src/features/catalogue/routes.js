@@ -20,8 +20,15 @@ router.get('/deals', async (req, res) => {
 router.get('/search', async (req, res) => {
     const title = String(req.query.title ?? '').trim();
     if (!title) return res.json([]);
-    const games = await cheapSharkGet('games', { title, limit: '20' });
-    res.json(games.map((game) => ({ id: game.gameID, title: game.external, cheapest: Number(game.cheapest), steamAppId: game.steamAppID })));
+    const [games, rate] = await Promise.all([cheapSharkGet('games', { title, limit: '8' }), getUsdToRon().catch(() => null)]);
+    res.json(
+        games.slice(0, 8).map((game) => ({
+            id: game.gameID,
+            title: game.external,
+            cheapestRon: rate === null ? null : Math.round(Number(game.cheapest) * rate * 100) / 100,
+            steamAppId: game.steamAppID,
+        })),
+    );
 });
 
 // Example: the stores CheapShark tracks → GET /api/catalogue/stores
